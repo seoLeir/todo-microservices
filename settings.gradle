@@ -4,4 +4,5 @@ includeBuild('todo-server')
 includeBuild('todo-config')
 includeBuild('todo-gateway')
 includeBuild('todo-entity')
+includeBuild('todo-main')
 

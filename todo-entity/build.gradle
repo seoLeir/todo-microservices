@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
+    id 'maven-publish'
 }
 
 group = 'io.seoLeir.micro'
@@ -19,6 +20,27 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    publications {
+        publishToMavenLocal(MavenPublication) {
+            groupId = 'io.seoLeir.micro'
+            artifactId = 'todo-entity'
+            version = '1.0.0'
+
+            from components.java
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+        }
+    }
 }
 
 dependencies {
