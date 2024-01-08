@@ -1,7 +1,6 @@
 package io.seoleir.micro.todo.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -55,11 +54,13 @@ public class Task implements Serializable {
     private Category category;
 
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    /*@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id") // по каким полям связывать (foreign key)
-    private User user; // для какого пользователя задача
+    private User user;*/ // для какого пользователя задача
 
+    @Column(name = "user_id")
+    private Long user;
 
     @Override
     public boolean equals(Object o) {

@@ -1,7 +1,6 @@
 package io.seoleir.micro.todo.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,11 +36,14 @@ public class Stat { // в этой таблице всего 1 запись, к�
     @Column(name = "uncompleted_total", updatable = false)
     private Long uncompletedTotal; // значение задается в триггере в БД
 
-    @OneToOne(fetch = FetchType.LAZY)
+    /*@OneToOne(fetch = FetchType.LAZY)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "id") // по каким полям связывать (foreign key)
-    private User user;
+    private User user;*/
+
+    @Column(name = "user_id")
+    private Long user;
 
 
     @Override

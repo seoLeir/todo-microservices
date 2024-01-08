@@ -38,10 +38,12 @@ public class Activity { // название таблицы будет брать
     @Column(updatable = false)
     private String uuid; // создается только один раз с помощью триггера в БД
 
-    @OneToOne(fetch = FetchType.LAZY)
+    /*@OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")*/
+
+    @Column(name = "user_id")
+    private Long user;
 
 
     @Override

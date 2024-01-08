@@ -41,6 +41,7 @@ public class Role {
 			inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private Set<User> users;
 
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
