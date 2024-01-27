@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo.entity;
+package io.seoleir.micro.todoentity.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -19,7 +19,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "role_data", schema = "todolist", catalog = "postgres")
+@Table(name = "role_data", schema = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

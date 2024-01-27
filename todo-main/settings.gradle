@@ -1,1 +1,3 @@
 rootProject.name = 'todo-main'
+
+include('todo-entity')

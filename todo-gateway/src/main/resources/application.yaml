@@ -6,8 +6,16 @@ spring:
     name: todo-gateway
   config:
     import: configserver:http://localhost:8888
-management:
-  endpoints:
-    web:
-      exposure:
-        include=*:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#      routes:
+#        - id: todo-main
+#          uri: lb://todo-main
+#          predicates:
+#            - Path=/api/category/hi
+#            - Method=GET
+

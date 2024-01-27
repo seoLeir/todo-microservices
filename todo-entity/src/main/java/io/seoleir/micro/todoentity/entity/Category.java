@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo.entity;
+package io.seoleir.micro.todoentity.entity;
 
 
 import jakarta.persistence.*;
@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.cache.annotation.Cacheable;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -22,7 +21,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "category", schema = "todolist", catalog = "postgres")
+@Table(name = "category", schema = "main")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -49,9 +48,7 @@ public class Category implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id") */// по каким полям связаны эти 2 объекта (foreign key)
     @Column(name = "user_id")
-    private Long user;
-
-
+    private Long userId;
 
     @Override
     public boolean equals(Object o) {

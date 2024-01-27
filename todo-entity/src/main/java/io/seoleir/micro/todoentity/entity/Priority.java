@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo.entity;
+package io.seoleir.micro.todoentity.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.cache.annotation.Cacheable;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -20,7 +19,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "priority", schema = "todolist", catalog = "postgres")
+@Table(name = "priority", schema = "main")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

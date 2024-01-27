@@ -1,4 +1,4 @@
-package io.seoleir.todomain;
+package io.seoleir.micro.todomain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

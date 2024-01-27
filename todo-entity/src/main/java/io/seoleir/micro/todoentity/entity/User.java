@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo.entity;
+package io.seoleir.micro.todoentity.entity;
 
 
 
@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "user_data", schema = "todolist", catalog = "postgres")
+@Table(name = "user_data", schema = "users")
 @Setter
 @Getter
 @AllArgsConstructor

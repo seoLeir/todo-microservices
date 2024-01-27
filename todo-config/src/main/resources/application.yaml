@@ -6,11 +6,12 @@ spring:
       server:
         git:
           username: seoLeir
-          password: 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
+          password: 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
           basedir: file://D:/VCSprojects/todo/todo-cloud-config
-          clone-on-start: true
           uri: https://github.com/seoLeir/todo-cloud-config.git
           default-label: main
           force-pull: true
+          clone-on-start: true
+      name: todo-config
   application:
     name: todo-config

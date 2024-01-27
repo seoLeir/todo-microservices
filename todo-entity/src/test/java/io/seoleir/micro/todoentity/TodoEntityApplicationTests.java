@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo;
+package io.seoleir.micro.todoentity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

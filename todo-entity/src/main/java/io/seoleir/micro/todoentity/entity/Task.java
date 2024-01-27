@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo.entity;
+package io.seoleir.micro.todoentity.entity;
 
 
 import jakarta.persistence.*;
@@ -20,7 +20,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "task", schema = "todolist", catalog = "postgres")
+@Table(name = "task", schema = "main")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

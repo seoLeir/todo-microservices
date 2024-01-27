@@ -1,4 +1,4 @@
-package io.seoleir.micro.todo.entity;
+package io.seoleir.micro.todoentity.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,15 +11,14 @@ import org.hibernate.type.NumericBooleanConverter;
 import java.util.Objects;
 
 
-/*
+/**
 
-Вся активность пользователя (активация аккаунта, другие действия по необходимости)
+* Вся активность пользователя (активация аккаунта, другие действия по необходимости)
 
 */
 
-
 @Entity
-@Table(name = "activity", schema = "todolist", catalog = "postgres")
+@Table(name = "activity", schema = "main")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

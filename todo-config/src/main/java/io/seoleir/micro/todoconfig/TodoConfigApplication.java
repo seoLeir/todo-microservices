@@ -7,6 +7,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
 @EnableConfigServer
+
 public class TodoConfigApplication {
 
     public static void main(String[] args) {

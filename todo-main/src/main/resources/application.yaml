@@ -1,7 +1,8 @@
 spring:
   application:
     name: todo-main
-  config:
-    import: configserver:http://localhost:8888
   profiles:
     active: main
+  config:
+    import: configserver:http://localhost:8888
+
