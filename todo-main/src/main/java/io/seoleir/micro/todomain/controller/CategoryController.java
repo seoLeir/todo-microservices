@@ -30,14 +30,13 @@ public class CategoryController {
     // доступ к данным из БД
     private final CategoryService categoryService;
 
-
     @PostMapping("/all")
-    public List<Category> findAll(@RequestBody Long id) {
-        return categoryService.findAll(id);
+    public List<Category> findAllByUserId(@RequestBody Long userId) {
+        return categoryService.findCategoryByUserId(userId);
     }
 
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<?> add(@RequestBody Category category) {
 
         // проверка на обязательные параметры
@@ -51,12 +50,14 @@ public class CategoryController {
             return new ResponseEntity<>("missed param: title MUST be not null", HttpStatus.NOT_ACCEPTABLE);
         }
 
-        return ResponseEntity.ok(categoryService.add(category)); // возвращаем добавленный объект с заполненным ID
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(categoryService.add(category)); // возвращаем добавленный объект с заполненным ID
     }
 
 
 
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<?> update(@RequestBody Category category) {
 
         // проверка на обязательные параметры
@@ -70,16 +71,16 @@ public class CategoryController {
         }
 
         // save работает как на добавление, так и на обновление
-        categoryService.update(category);
+        Category updatedCategory = categoryService.update(category);
 
-        return new ResponseEntity<>(HttpStatus.OK); // просто отправляем статус 200 (операция прошла успешно)
+        return ResponseEntity.ok(updatedCategory); // просто отправляем статус 200 (операция прошла успешно)
     }
 
 
 
     // для удаления используем тип запроса DELETE и передаем ID для удаления
     // можно также использовать метод POST и передавать ID в теле запроса
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
 
         // можно обойтись и без try-catch, тогда будет возвращаться полная ошибка (stacktrace)
@@ -91,7 +92,7 @@ public class CategoryController {
             return new ResponseEntity<>("id=" + id + " not found", HttpStatus.NOT_ACCEPTABLE);
         }
 
-        return new ResponseEntity<>(HttpStatus.OK); // просто отправляем статус 200 без объектов (операция прошла успешно)
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT); // просто отправляем статус 200 без объектов (операция прошла успешно)
     }
 
 
@@ -112,8 +113,8 @@ public class CategoryController {
 
 
     // параметр id передаются не в BODY запроса, а в самом URL
-    @PostMapping("/id")
-    public ResponseEntity<?> findById(@RequestBody Long userId) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findById(@PathVariable("id") Long userId) {
 
         Category category;
 
@@ -123,15 +124,10 @@ public class CategoryController {
             category = categoryService.findById(userId);
         } catch (NoSuchElementException e) { // если объект не будет найден
             e.printStackTrace();
-            return new ResponseEntity<>("id=" + userId + " not found", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>("Category with id:" + userId + " not found", HttpStatus.NOT_ACCEPTABLE);
         }
 
         return ResponseEntity.ok(category);
-    }
-
-    @GetMapping("/hi")
-    public ResponseEntity<String> sayHi(){
-        return ResponseEntity.ok("Hello world");
     }
 
 }

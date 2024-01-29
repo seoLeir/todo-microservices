@@ -43,7 +43,7 @@ public class Stat { // в этой таблице всего 1 запись, к�
     private User user;*/
 
     @Column(name = "user_id")
-    private Long user;
+    private Long userId;
 
 
     @Override

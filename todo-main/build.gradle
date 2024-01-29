@@ -30,7 +30,8 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     compileOnly 'org.projectlombok:lombok'
 
-    implementation 'io.seoLeir.micro:todo-entity'
+    implementation 'io.seoLeir.micro:todo-entity:1.0.0'
+    implementation 'io.seoleir.micro:todo-utils:1.0.0'
 
     implementation 'org.postgresql:postgresql'
 

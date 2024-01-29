@@ -25,7 +25,7 @@ repositories {
 publishing {
     publications {
         publishToMavenLocal(MavenPublication) {
-            groupId = 'io.seoLeir.micro'
+            groupId = 'io.seoleir.micro'
             artifactId = 'todo-entity'
             version = '1.0.0'
 

@@ -27,8 +27,12 @@ public class CategoryService {
     }
 
     @Cacheable(cacheNames = "categories")
-    public List<Category> findAll(Long id) {
-        return repository.findByUserIdOrderByTitleAsc(id);
+    public List<Category> findAll() {
+        return repository.findAll();
+    }
+
+    public List<Category> findCategoryByUserId(Long userId){
+        return repository.findByUserIdOrderByTitleAsc(userId);
     }
 
     public Category add(Category category) {

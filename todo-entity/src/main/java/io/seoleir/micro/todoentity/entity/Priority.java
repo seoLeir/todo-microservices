@@ -41,7 +41,7 @@ public class Priority implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")*/ // по каким полям связывать (foreign key)
     @Column(name = "user_id")
-    private Long user;
+    private Long userId;
 
     @Override
     public boolean equals(Object o) {
