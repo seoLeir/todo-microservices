@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: todo-users
+  profiles:
+    active: logging
+  config:
+    import: configserver:http://localhost:8888
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: trace
