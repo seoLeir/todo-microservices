@@ -18,7 +18,7 @@ public class UserRestBuilder {
 
         ResponseEntity<User> response;
         try {
-            response = restTemplate.getForEntity(baseUrl + "/" + userId, User.class);
+//            response = restTemplate.getForEntity(baseUrl + "/" + userId, User.class);
             response = restTemplate.exchange(baseUrl + "/{id}", HttpMethod.GET, null, User.class, userId);
             return response.getStatusCode().is2xxSuccessful();
         } catch (Exception e) {
